@@ -57,7 +57,7 @@ export default function App() {
                  <div className="allotment-data">
                      <h2>Allotment Details for Rank: {allotmentData.rank}</h2>
                      <ul>
-                         {Object.entries(allotmentData).map(([key, value]) => (
+                         {Object.entries(allotmentData).filter(([key,value])=> value!==null && value !=='').map(([key, value]) => (
                              <li key={key}>
                                  <strong>{key.replace(/_/g, ' ').toUpperCase()}:</strong>
                                  <span>{value || 'N/A'}</span>
