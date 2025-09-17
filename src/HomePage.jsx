@@ -6,6 +6,9 @@ function HomePage(){
     const goToChecker = () =>{
         navigate('/checker');
     };
+    const goToCategory = () =>{
+        navigate('/category');
+    };
     return(
         <div className="container home-container">
             <header>
@@ -15,6 +18,9 @@ function HomePage(){
             <div className="home-action">
                 <button onClick={goToChecker} className="cta-button">
                     Open Rank Checker
+                </button>
+                <button onClick={goToCategory} className="cta-button">
+                    Open Category Analyzer
                 </button>
             </div>
         </div>
