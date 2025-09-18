@@ -19,13 +19,10 @@ export default function Bombay() {
         "Mechanical Engineering",
         "Metallurgical Engineering and Materials Science"
     ];
-    const category = [
-        "EWS","OBC","OPEN/General","SC","ST"
-    ];
     const [selectedBranch, setSelectedBranch] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('OPEN/General');
+    const [selectedCategory, setSelectedCategory] = useState('');
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
     const [results, setResults] = useState([]);
     const API_URL = 'http://localhost:3000/iit/Bombay';
 
@@ -38,9 +35,8 @@ export default function Bombay() {
         if(selectedBranch) {
             params.append("branch", selectedBranch);
         }
-        if(selectedCategory) {
-            params.append("category", selectedCategory);
-        }
+        params.append("category", selectedCategory);
+
         const queryString = params.toString();
         const requestURL = `${API_URL}?${queryString}`;
         try{
@@ -49,7 +45,7 @@ export default function Bombay() {
             if(!response.ok||!data.success){
                 throw new Error(data.error||'Failed to fetch data');
             }
-            setResults(data);
+            setResults(data.data);
         }catch(error){
             setError(error.message);
             console.error("Failed to fetch Bombay Data")
@@ -57,25 +53,67 @@ export default function Bombay() {
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
-    useEffect(() => {
-        bombayFetch();
-    },[bombayFetch]);
     return(
         <div className="bombay-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
-                <h1> IIT Bombay</h1>
+                <h1>
+                    IIT Bombay
+                </h1>
                 <p>Welcome to IIT Bombay</p>
             </header>
             <div className="filter-controls">
-                <div className="selectwrapper">
+                <div className="select-wrapper">
                     <label htmlFor="category-select">
-                        <select id="iit-select" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-                            <option value="Open/General">Select Your Category</option>
-                                {category.map((cat)=><option key={cat} value={cat}>{cat}</option>)}
+                        <select id="category-select" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                            <option key="open-general" value="">OPEN/General</option>
+                            <option key="ews" value="ews">EWS</option>
+                            <option key="obc" value="obc">OBC</option>
+                            <option key="sc" value="sc">SC</option>
+                            <option key="st" value="st">ST</option>
                         </select>
                     </label>
                 </div>
+                <div className="select-wrapper">
+                    <label htmlFor="branch-select"></label>
+                        <select id="branch-select" value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
+                            <option value="">All Branches</option>
+                            {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
+                        </select>
+                </div>
+                <button onClick={bombayFetch} disabled={loading} className="search-button filter-button">
+                    {loading?'Searching...':'Search'}
+                </button>
+            </div>
+            <div className="results-area">
+                {error&&<div className="message error-message"><p>{error}</p></div>}
+                {!loading &&!error &&results.length===0 && (
+                    <div className="message info-message">
+                        <p>No results found for selected criteria</p>
+                    </div>
+                )}
+                {results.length>0&&(
+                    <div className="results-table-container">
+                        <h3>Found {results.length} result(s)</h3>
+                        <table className="results-table">
+                            <thead>
+                            <tr>
+                                <th>Branch</th>
+                                <th>General Rank</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {results.map((item)=>(
+                                <tr key={`${item.iit}-${item.branch}-${item.rank}`}>
+                                    <td>{item.iit}</td>
+                                    <td>{item.branch}</td>
+                                    <td>{item.rank}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </div>
         </div>
     )
