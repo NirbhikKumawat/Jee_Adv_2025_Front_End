@@ -9,6 +9,9 @@ function HomePage(){
     const goToCategory = () =>{
         navigate('/category');
     };
+    const goToBombay = () =>{
+        navigate('/bombay');
+    }
     return(
         <div className="container home-container">
             <header>
@@ -21,6 +24,9 @@ function HomePage(){
                 </button>
                 <button onClick={goToCategory} className="cta-button">
                     Open Category Analyzer
+                </button>
+                <button onClick={goToBombay} className="cta-button">
+                    IIT Bombay
                 </button>
             </div>
         </div>
