@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import './App.css';
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 export default function Bombay() {
     const branchList = [
         "Aerospace Engineering",
@@ -100,14 +100,21 @@ export default function Bombay() {
                             <tr>
                                 <th>Branch</th>
                                 <th>General Rank</th>
+                                <th>EWS Rank</th>
+                                <th>OBC Rank</th>
+                                <th>SC Rank</th>
+                                <th>ST Rank</th>
                             </tr>
                             </thead>
                             <tbody>
                             {results.map((item)=>(
                                 <tr key={`${item.iit}-${item.branch}-${item.rank}`}>
-                                    <td>{item.iit}</td>
                                     <td>{item.branch}</td>
                                     <td>{item.rank}</td>
+                                    <td>{item.ews_rank}</td>
+                                    <td>{item.obc_rank}</td>
+                                    <td>{item.sc_rank}</td>
+                                    <td>{item.st_rank}</td>
                                 </tr>
                             ))}
                             </tbody>
