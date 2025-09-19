@@ -6,6 +6,7 @@ import Category from "./Category.jsx";
 import Ews from "./Ews.jsx";
 import Bombay from "./Bombay.jsx";
 import Delhi from "./Delhi.jsx";
+import IIT from "./IIT.jsx";
 
 function App() {
     return (
@@ -14,8 +15,9 @@ function App() {
             <Route path="/checker" element={<AllotmentChecker />} />
             <Route path="/category" element={<Category />} />
             <Route path="/ews" element={<Ews/>}/>
-            <Route path="/bombay" element={<Bombay />} />
-            <Route path="/delhi" element={<Delhi />} />
+            <Route path="/iit/bombay" element={<Bombay />} />
+            <Route path="/iit/delhi" element={<Delhi />} />
+            <Route path="/iit" element={<IIT />} />
         </Routes>
     );
 }

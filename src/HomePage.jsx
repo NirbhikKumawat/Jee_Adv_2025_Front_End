@@ -9,12 +9,10 @@ function HomePage(){
     const goToCategory = () =>{
         navigate('/category');
     };
-    const goToBombay = () =>{
-        navigate('/bombay');
-    }
-    const goToDelhi = () =>{
-        navigate('/delhi');
-    }
+    const goToIit = () =>{
+        navigate('/iit');
+    };
+
     return(
         <div className="container home-container">
             <header>
@@ -28,11 +26,8 @@ function HomePage(){
                 <button onClick={goToCategory} className="cta-button">
                     Open Category Analyzer
                 </button>
-                <button onClick={goToBombay} className="cta-button">
-                    IIT Bombay
-                </button>
-                <button onClick={goToDelhi} className="cta-button">
-                    IIT Delhi
+                <button onClick={goToIit} className="cta-button">
+                    IIT
                 </button>
             </div>
         </div>
