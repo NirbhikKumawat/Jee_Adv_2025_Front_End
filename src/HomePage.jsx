@@ -12,6 +12,9 @@ function HomePage(){
     const goToBombay = () =>{
         navigate('/bombay');
     }
+    const goToDelhi = () =>{
+        navigate('/delhi');
+    }
     return(
         <div className="container home-container">
             <header>
@@ -27,6 +30,9 @@ function HomePage(){
                 </button>
                 <button onClick={goToBombay} className="cta-button">
                     IIT Bombay
+                </button>
+                <button onClick={goToDelhi} className="cta-button">
+                    IIT Delhi
                 </button>
             </div>
         </div>

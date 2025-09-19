@@ -5,6 +5,7 @@ import AllotmentChecker from './AllotmentChecker'
 import Category from "./Category.jsx";
 import Ews from "./Ews.jsx";
 import Bombay from "./Bombay.jsx";
+import Delhi from "./Delhi.jsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/category" element={<Category />} />
             <Route path="/ews" element={<Ews/>}/>
             <Route path="/bombay" element={<Bombay />} />
+            <Route path="/delhi" element={<Delhi />} />
         </Routes>
     );
 }
