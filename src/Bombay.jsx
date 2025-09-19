@@ -20,10 +20,34 @@ export default function Bombay() {
         "Metallurgical Engineering and Materials Science"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('open');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState([{
+        "success": true,
+        "data": [
+            {
+                "adv_roll_no": 256166748,
+                "rank": 3927,
+                "ews_rank": 397,
+                "obc_rank": null,
+                "sc_rank": null,
+                "st_rank": null,
+                "iit": "Bombay",
+                "branch": "BS in Mathematics"
+            },{
+            "adv_roll_no": 256166748,
+                "rank": 404,
+                "ews_rank": null,
+                "obc_rank": null,
+                "sc_rank": null,
+                "st_rank": null,
+                "iit": "Bombay",
+                "branch": "Electrical Engineering"
+            }
+        ],
+        "count": 2
+    }]);
     const API_URL = 'http://localhost:3000/iit/Bombay';
 
     const bombayFetch = useCallback(async () => {
@@ -66,7 +90,7 @@ export default function Bombay() {
                 <div className="select-wrapper">
                     <label htmlFor="category-select">
                         <select id="category-select" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-                            <option key="open-general" value="">OPEN/General</option>
+                            <option key="open-general" value="open">OPEN/General</option>
                             <option key="ews" value="ews">EWS</option>
                             <option key="obc" value="obc">OBC</option>
                             <option key="sc" value="sc">SC</option>
