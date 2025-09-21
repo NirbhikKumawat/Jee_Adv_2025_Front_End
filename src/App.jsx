@@ -13,6 +13,15 @@ import Kharagpur from "./Kharagpur.jsx";
 import Guwahati from "./Guwhati.jsx";
 import Varanasi from "./Varanasi.jsx";
 import Roorkee from "./Roorkee.jsx";
+import Hyderabad from "./Hyderabad.jsx";
+import Indore from "./Indore.jsx";
+import Gandhinagar from "./Gandhinagar.jsx";
+import Dhanbad from "./Dhanbad.jsx";
+import Dharwad from "./Dharward.jsx";
+import Tirupati from "./Tirupati.jsx";
+import Ropar from "./Ropar.jsx";
+import Patna from "./Patna.jsx";
+import Bhilai from "./Bhilai.jsx";
 
 function App() {
     return (
@@ -30,6 +39,15 @@ function App() {
             <Route path="/iit/guwahati" element={<Guwahati />} />
             <Route path="/iit/varanasi" element={<Varanasi />} />
             <Route path="/iit/roorkee" element={<Roorkee />} />
+            <Route path="/iit/hyderabad" element={<Hyderabad />} />
+            <Route path="/iit/indore" element={<Indore />} />
+            <Route path="/iit/gandhinagar" element={<Gandhinagar />} />
+            <Route path="/iit/dhanbad" element={<Dhanbad />} />
+            <Route path="/iit/dharwad" element={<Dharwad />} />
+            <Route path="/iit/tirupati" element={<Tirupati />} />
+            <Route path="/iit/ropar" element={<Ropar />} />
+            <Route path="/iit/patna" element={<Patna />} />
+            <Route path="/iit/bhilai" element={<Bhilai />} />
         </Routes>
     );
 }

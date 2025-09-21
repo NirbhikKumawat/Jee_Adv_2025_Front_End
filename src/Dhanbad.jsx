@@ -1,28 +1,28 @@
 import {Link} from 'react-router-dom';
 import './App.css';
 import {useCallback, useState} from "react";
-export default function Delhi() {
+export default function Dhanbad() {
     const branchList = [
-        "Abu Dhabi Campus - Chemical Engineering",
-        "Abu Dhabi Campus - Computer Science and Engineering",
-        "Abu Dhabi Campus - Energy Engineering",
-        "Biotechnology and Biochemical Engineering",
-        "Chemical Engineering",
-        "Chemistry 4201 Chemistry",
-        "Civil Engineering",
         "Computer Science and Engineering",
-        "Design 412T Design",
-        "Electrical Engineering",
-        "Electrical Engineering (Power and Automation)",
-        "Energy Engineering",
-        "Engineering and Computational Mechanics",
-        "Engineering Physics",
-        "Materials Engineering",
-        "Mathematics and Computing",
+        "Chemical Engineering",
+        "Environmental Engineering",
         "Mechanical Engineering",
-        "Production and Industrial Engineering",
-        "Textile Technology",
-    ];
+        "Applied Geology",
+        "Electronics and Communication Engineering",
+        "Mineral and Metallurgical Engineering",
+        "Electrical Engineering",
+        "B.Tech Mining Engineering and MBA in Logistic and Supply Chain Management (IIM Mumbai)",
+    "Mining Machinery Engineering",
+    "Applied Geophysics",
+    "Petroleum Engineering",
+    "Civil Engineering",
+    "ChemicalScience 5H2B ChemicalScience",
+    "Engineering Physics",
+    "Physical Science",
+    "Mathematics and Computing",
+    "Mining Engineering"
+
+];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ export default function Delhi() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Delhi",
+                "iit": "Dhanbad",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -46,15 +46,15 @@ export default function Delhi() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Delhi",
+                "iit": "Dhanbad",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Delhi';
+    const API_URL = 'http://localhost:3000/iit/Dhanbad';
 
-    const delhiFetch = useCallback(async () => {
+    const dhanbadFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -76,19 +76,19 @@ export default function Delhi() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Delhi Data")
+            console.error("Failed to fetch Dhanbad Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="delhi-container">
+        <div className="dhanbad-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Delhi
+                    IIT Dhanbad
                 </h1>
-                <p>Welcome to IIT Delhi</p>
+                <p>Welcome to IIT Dhanbad</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -110,7 +110,7 @@ export default function Delhi() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={delhiFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={dhanbadFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

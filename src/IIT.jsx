@@ -28,6 +28,33 @@ export default function IIT() {
     const goToGuwhati = ()=>{
         navigate('/iit/guwahati');
     }
+    const goToHyderabad = ()=>{
+        navigate('/iit/hyderabad');
+    }
+    const goToIndore =()=>{
+        navigate('/iit/indore');
+    }
+    const goToGandhinagar=()=>{
+        navigate('/iit/gandhinagar');
+    }
+    const goToDhanbad =()=>{
+        navigate('/iit/dhanbad');
+    }
+    const goToDharwad =()=>{
+        navigate('/iit/dharwad');
+    }
+    const goToTirupati=()=>{
+        navigate('/iit/tirupati');
+    }
+    const goToRopar =()=>{
+        navigate('/iit/ropar');
+    }
+    const goToPatna =()=>{
+        navigate('/iit/patna');
+    }
+    const goToBhilai=()=>{
+        navigate('/iit/bhilai');
+    }
     return(
         <div className="container home-container">
             <header>
@@ -58,6 +85,33 @@ export default function IIT() {
                 </button>
                 <button onClick={goToGuwhati} className="cta-button">
                     IIT Guwahati
+                </button>
+                <button onClick={goToHyderabad} className="cta-button">
+                    IIT Hyderabad
+                </button>
+                <button onClick={goToIndore} className="cta-button">
+                    IIT Indore
+                </button>
+                <button onClick={goToGandhinagar} className="cta-button">
+                    IIT Gandhinagar
+                </button>
+                <button onClick={goToDhanbad} className="cta-button">
+                    IIT Dhanbad
+                </button>
+                <button onClick={goToDharwad} className="cta-button">
+                    IIT Dharwad
+                </button>
+                <button onClick={goToTirupati} className="cta-button">
+                    IIT Tirupati
+                </button>
+                <button onClick={goToRopar} className="cta-button">
+                    IIT Ropar
+                </button>
+                <button onClick={goToPatna} className="cta-button">
+                    IIT Patna
+                </button>
+                <button onClick={goToBhilai} className="cta-button">
+                    IIT Bhilai
                 </button>
             </div>
         </div>

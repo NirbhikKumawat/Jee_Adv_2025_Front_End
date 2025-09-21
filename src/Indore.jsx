@@ -1,27 +1,17 @@
 import {Link} from 'react-router-dom';
 import './App.css';
 import {useCallback, useState} from "react";
-export default function Delhi() {
+export default function Indore() {
     const branchList = [
-        "Abu Dhabi Campus - Chemical Engineering",
-        "Abu Dhabi Campus - Computer Science and Engineering",
-        "Abu Dhabi Campus - Energy Engineering",
-        "Biotechnology and Biochemical Engineering",
-        "Chemical Engineering",
-        "Chemistry 4201 Chemistry",
-        "Civil Engineering",
         "Computer Science and Engineering",
-        "Design 412T Design",
-        "Electrical Engineering",
-        "Electrical Engineering (Power and Automation)",
-        "Energy Engineering",
-        "Engineering and Computational Mechanics",
-        "Engineering Physics",
-        "Materials Engineering",
-        "Mathematics and Computing",
+        "Chemical Engineering",
         "Mechanical Engineering",
-        "Production and Industrial Engineering",
-        "Textile Technology",
+        "Metallurgical Engineering and Materials Science",
+        "Electrical Engineering",
+        "Space Science and Engineering",
+        "Civil Engineering",
+        "Engineering Physics",
+        "Mathematics and Computing"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -37,7 +27,7 @@ export default function Delhi() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Delhi",
+                "iit": "Indore",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -46,15 +36,15 @@ export default function Delhi() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Delhi",
+                "iit": "Indore",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Delhi';
+    const API_URL = 'http://localhost:3000/iit/Indore';
 
-    const delhiFetch = useCallback(async () => {
+    const indoreFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -76,19 +66,19 @@ export default function Delhi() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Delhi Data")
+            console.error("Failed to fetch Indore Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="delhi-container">
+        <div className="indore-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Delhi
+                    IIT Indore
                 </h1>
-                <p>Welcome to IIT Delhi</p>
+                <p>Welcome to IIT Indore</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -110,7 +100,7 @@ export default function Delhi() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={delhiFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={indoreFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>
