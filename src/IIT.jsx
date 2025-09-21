@@ -55,6 +55,24 @@ export default function IIT() {
     const goToBhilai=()=>{
         navigate('/iit/bhilai');
     }
+    const goToJodhpur=()=>{
+        navigate('/iit/jodhpur');
+    }
+    const goToGoa=()=>{
+        navigate('/iit/goa');
+    }
+    const goToPalakkad=()=>{
+        navigate('/iit/palakkad');
+    }
+    const goToMandi=()=>{
+        navigate('/iit/mandi');
+    }
+    const goToBhubaneswar=()=>{
+        navigate('/iit/bhubaneshwar');
+    }
+    const goToJammu=()=>{
+        navigate('/iit/jammu');
+    }
     return(
         <div className="container home-container">
             <header>
@@ -112,6 +130,24 @@ export default function IIT() {
                 </button>
                 <button onClick={goToBhilai} className="cta-button">
                     IIT Bhilai
+                </button>
+                <button onClick={goToJodhpur} className="cta-button">
+                    IIT Jodhpur
+                </button>
+                <button onClick={goToGoa} className="cta-button">
+                    IIT Goa
+                </button>
+                <button onClick={goToPalakkad} className="cta-button">
+                    IIT Palakkad
+                </button>
+                <button onClick={goToMandi} className="cta-button">
+                    IIT Mandi
+                </button>
+                <button onClick={goToBhubaneswar} className="cta-button">
+                    IIT Bhubaneswar
+                </button>
+                <button onClick={goToJammu} className="cta-button">
+                    IIT Jammu
                 </button>
             </div>
         </div>

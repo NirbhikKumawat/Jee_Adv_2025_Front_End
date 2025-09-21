@@ -22,6 +22,12 @@ import Tirupati from "./Tirupati.jsx";
 import Ropar from "./Ropar.jsx";
 import Patna from "./Patna.jsx";
 import Bhilai from "./Bhilai.jsx";
+import Goa from "./Goa.jsx";
+import Jodhpur from "./Jodhpur.jsx";
+import Palakkad from "./Palakkad.jsx";
+import Mandi from "./Mandi.jsx";
+import Bhubaneshwar from "./Bhubaneshwar.jsx";
+import Jammu from "./Jammu.jsx";
 
 function App() {
     return (
@@ -48,6 +54,12 @@ function App() {
             <Route path="/iit/ropar" element={<Ropar />} />
             <Route path="/iit/patna" element={<Patna />} />
             <Route path="/iit/bhilai" element={<Bhilai />} />
+            <Route path="/iit/goa" element={<Goa />} />
+            <Route path="/iit/jodhpur" element={<Jodhpur />} />
+            <Route path="/iit/palakkad" element={<Palakkad />} />
+            <Route path="/iit/mandi" element={<Mandi />} />
+            <Route path="/iit/bhubaneshwar" element={<Bhubaneshwar />} />
+            <Route path="/iit/jammu" element={<Jammu />} />
         </Routes>
     );
 }
