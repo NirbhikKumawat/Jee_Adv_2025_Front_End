@@ -8,6 +8,7 @@ import Bombay from "./Bombay.jsx";
 import Delhi from "./Delhi.jsx";
 import IIT from "./IIT.jsx";
 import Madras from "./Madras.jsx";
+import Kanpur from "./Kanpur.jsx";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/iit/delhi" element={<Delhi />} />
             <Route path="/iit" element={<IIT />} />
             <Route path="/iit/madras" element={<Madras />} />
+            <Route path="/iit/kanpur" element={<Kanpur />} />
         </Routes>
     );
 }
