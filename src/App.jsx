@@ -7,6 +7,7 @@ import Ews from "./Ews.jsx";
 import Bombay from "./Bombay.jsx";
 import Delhi from "./Delhi.jsx";
 import IIT from "./IIT.jsx";
+import Madras from "./Madras.jsx";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/iit/bombay" element={<Bombay />} />
             <Route path="/iit/delhi" element={<Delhi />} />
             <Route path="/iit" element={<IIT />} />
+            <Route path="/iit/madras" element={<Madras />} />
         </Routes>
     );
 }
