@@ -16,6 +16,9 @@ export default function IIT() {
     const goToKanpur =()=>{
         navigate('/iit/kanpur');
     }
+    const goToKharagpur = () =>{
+        navigate('/iit/kharagpur');
+    }
     return(
         <div className="container home-container">
             <header>
@@ -34,6 +37,9 @@ export default function IIT() {
                 </button>
                 <button onClick={goToKanpur} className="cta-button">
                     IIT Kanpur
+                </button>
+                <button onClick={goToKharagpur} className="cta-button">
+                    IIT Kharagpur
                 </button>
             </div>
         </div>
