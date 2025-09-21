@@ -1,17 +1,25 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Indore() {
+export default function Madras() {
     const branchList = [
         "Computer Science and Engineering",
+        "Instrumentation and Biomedical Engineering",
         "Chemical Engineering",
+        "Metallurgical and Materials Engineering",
+        "Biological Science",
         "Mechanical Engineering",
-        "Metallurgical Engineering and Materials Science",
+        "Naval Architecture and Ocean Engineering",
         "Electrical Engineering",
-        "Space Science and Engineering",
+        "Physics 4204 Physics",
         "Civil Engineering",
+        "Engineering Design",
+        "Aerospace Engineering",
         "Engineering Physics",
-        "Mathematics and Computing"
+        "Computational Engineering and Mechanics",
+        "Artificial Intelligence and Data Analytics",
+        "Biological Engineering"
+
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -27,7 +35,7 @@ export default function Indore() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Indore",
+                "iit": "Madras",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -36,15 +44,15 @@ export default function Indore() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Indore",
+                "iit": "Madras",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Indore';
+    const API_URL = 'http://localhost:3000/iit/Madras';
 
-    const indoreFetch = useCallback(async () => {
+    const madrasFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -66,19 +74,19 @@ export default function Indore() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Indore Data")
+            console.error("Failed to fetch Madras Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="indore-container">
+        <div className="madras-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Indore
+                    IIT Madras
                 </h1>
-                <p>Welcome to IIT Indore</p>
+                <p>Welcome to IIT Madras</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -100,7 +108,7 @@ export default function Indore() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={indoreFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={madrasFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

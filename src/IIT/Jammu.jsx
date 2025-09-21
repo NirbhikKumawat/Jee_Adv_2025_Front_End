@@ -1,31 +1,17 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Kharagpur() {
+export default function Jammu() {
     const branchList = [
+        "Civil Engineering",
         "Computer Science and Engineering",
         "Chemical Engineering",
-        "Metallurgical and Materials Engineering",
-        "Manufacturing Science and Engineering",
-        "Biotechnology and Biochemical Engineering",
         "Mechanical Engineering",
-        "Applied Geology",
-        "Economics 4202 Economics",
-        "Electronics and Electrical Communication Engineering",
-        "Instrumentation Engineering",
+        "Materials Engineering",
+        "Engineering Physics",
         "Electrical Engineering",
-        "Artificial Intelligence",
-        "Physics 4204 Physics",
-        "Architecture 5101 Architecture",
-        "Civil Engineering",
-        "Agricultural and Food Engineering",
-        "Exploration Geophysics",
-        "Aerospace Engineering",
-        "Industrial and Systems Engineering",
-        "Chemistry 4201 Chemistry",
-        "Ocean Engineering and Naval Architecture",
-        "Mathematics and Computing",
-        "Mining Engineering"
+        "Mathematics and Computing"
+
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -41,7 +27,7 @@ export default function Kharagpur() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Kharagpur",
+                "iit": "Jammu",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -50,15 +36,15 @@ export default function Kharagpur() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Kharagpur",
+                "iit": "Jammu",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Kharagpur';
+    const API_URL = 'http://localhost:3000/iit/Jammu';
 
-    const kharagpurFetch = useCallback(async () => {
+    const jammuFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -80,19 +66,19 @@ export default function Kharagpur() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Kharagpur Data")
+            console.error("Failed to fetch Jammu Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="kharagpur-container">
+        <div className="jammu-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Kharagpur
+                    IIT Jammu
                 </h1>
-                <p>Welcome to IIT Kharagpur</p>
+                <p>Welcome to IIT Jammu</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -114,7 +100,7 @@ export default function Kharagpur() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={kharagpurFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={jammuFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

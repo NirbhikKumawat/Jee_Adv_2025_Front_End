@@ -1,18 +1,21 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Jammu() {
+export default function Ropar() {
     const branchList = [
-        "Civil Engineering",
         "Computer Science and Engineering",
         "Chemical Engineering",
+        "Metallurgical and Materials Engineering",
         "Mechanical Engineering",
-        "Materials Engineering",
-        "Engineering Physics",
+        "Artificial Intelligence and Data Engineering",
         "Electrical Engineering",
+        "Digital Agriculture",
+        "Civil Engineering",
+        "Electrical Engineering (Integrated Circuit Design and Technology)",
+        "Engineering Physics",
         "Mathematics and Computing"
 
-    ];
+];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [loading, setLoading] = useState(false);
@@ -27,7 +30,7 @@ export default function Jammu() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Jammu",
+                "iit": "Ropar",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -36,15 +39,15 @@ export default function Jammu() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Jammu",
+                "iit": "Ropar",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Jammu';
+    const API_URL = 'http://localhost:3000/iit/Ropar';
 
-    const jammuFetch = useCallback(async () => {
+    const roparFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -66,19 +69,19 @@ export default function Jammu() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Jammu Data")
+            console.error("Failed to fetch Ropar Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="jammu-container">
+        <div className="ropar-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Jammu
+                    IIT Ropar
                 </h1>
-                <p>Welcome to IIT Jammu</p>
+                <p>Welcome to IIT Ropar</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -100,7 +103,7 @@ export default function Jammu() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={jammuFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={roparFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

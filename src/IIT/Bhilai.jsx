@@ -1,21 +1,16 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Jodhpur() {
+export default function Bhilai() {
     const branchList = [
-        "Bio Engineering",
         "Computer Science and Engineering",
-        "Chemical Engineering",
+        "Materials Science and Metallurgical Engineering",
+        "Mechatronics Engineering",
         "Mechanical Engineering",
-        "Civil and Infrastructure Engineering",
-        "Chemistry with Specialization",
+        "Electronics and Communication Engineering",
         "Electrical Engineering",
-    "Artificial Intelligence and Data Science",
-    "Physics with Specialization",
-        "Materials Engineering",
-    "Electronics Engineering"
-
-];
+        "Data Science and Artificial Intelligence"
+    ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [loading, setLoading] = useState(false);
@@ -30,7 +25,7 @@ export default function Jodhpur() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Jodhpur",
+                "iit": "Bhilai",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -39,15 +34,15 @@ export default function Jodhpur() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Jodhpur",
+                "iit": "Bhilai",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Jodhpur';
+    const API_URL = 'http://localhost:3000/iit/Bhilai';
 
-    const jodhpurFetch = useCallback(async () => {
+    const bhilaiFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -69,19 +64,19 @@ export default function Jodhpur() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Jodhpur Data")
+            console.error("Failed to fetch Bhilai Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="jodhpur-container">
+        <div className="bhilai-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Jodhpur
+                    IIT Bhilai
                 </h1>
-                <p>Welcome to IIT Jodhpur</p>
+                <p>Welcome to IIT Bhilai</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -103,7 +98,7 @@ export default function Jodhpur() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={jodhpurFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={bhilaiFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

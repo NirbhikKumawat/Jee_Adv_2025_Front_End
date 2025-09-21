@@ -1,23 +1,17 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Hyderabad() {
+export default function Bhubaneswar() {
     const branchList = [
-        "Electrical Engineering (IC Design and Technology)",
         "Computer Science and Engineering",
-        "Chemical Engineering",
-        "Engineering Science",
+        "Metallurgical and Materials Engineering",
         "Mechanical Engineering",
+        "Electronics and Communication Engineering",
         "Electrical Engineering",
-        "Industrial Chemistry",
-        "Biomedical Engineering",
-        "Artificial Intelligence",
-        "Computational Engineering",
         "Civil Engineering",
-        "Biotechnology and Bioinformatics",
-        "Materials Science and Metallurgical Engineering",
         "Engineering Physics",
         "Mathematics and Computing"
+
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -33,7 +27,7 @@ export default function Hyderabad() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Hyderabad",
+                "iit": "Bhubaneswar",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -42,15 +36,15 @@ export default function Hyderabad() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Hyderabad",
+                "iit": "Bhubaneswar",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Hyderabad';
+    const API_URL = 'http://localhost:3000/iit/Bhubaneswar';
 
-    const hyderabadFetch = useCallback(async () => {
+    const bhubaneswarFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -72,19 +66,19 @@ export default function Hyderabad() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Hyderabad Data")
+            console.error("Failed to fetch Bhubaneswar Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="hyderabad-container">
+        <div className="bhubaneswar-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Hyderabad
+                    IIT Bhubaneswar
                 </h1>
-                <p>Welcome to IIT Hyderabad</p>
+                <p>Welcome to IIT Bhubaneswar</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -106,7 +100,7 @@ export default function Hyderabad() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={hyderabadFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={bhubaneswarFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

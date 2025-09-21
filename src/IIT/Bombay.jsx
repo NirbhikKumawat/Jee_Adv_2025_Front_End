@@ -1,17 +1,23 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Gandhinagar() {
+export default function Bombay() {
     const branchList = [
-        "Computer Science and Engineering",
+        "Aerospace Engineering",
+        "Applied Geophysics",
+        "BS in Mathematics",
         "Chemical Engineering",
-        "Integrated Circuit Design & Technology",
-        "Mechanical Engineering",
-        "Electrical Engineering",
-        "Artificial Intelligence",
+        "Chemistry 4201 Chemistry",
         "Civil Engineering",
-        "Materials Engineering"
-
+        "Computer Science and Engineering",
+        "Economics 4202 Economics",
+        "Electrical Engineering",
+        "Energy Engineering",
+        "Engineering Physics",
+        "Environmental Science and Engineering",
+        "Industrial Engineering and Operations Research",
+        "Mechanical Engineering",
+        "Metallurgical Engineering and Materials Science"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -27,24 +33,24 @@ export default function Gandhinagar() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Gandhinagar",
-                "branch": "Electrical Engineering"
+                "iit": "Bombay",
+                "branch": "BS in Mathematics"
             },{
-                "adv_roll_no": 256166748,
+            "adv_roll_no": 256166748,
                 "rank": 404,
                 "ews_rank": null,
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Gandhinagar",
+                "iit": "Bombay",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Gandhinagar';
+    const API_URL = 'http://localhost:3000/iit/Bombay';
 
-    const gandhinagarFetch = useCallback(async () => {
+    const bombayFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -66,19 +72,19 @@ export default function Gandhinagar() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Gandhinagar Data")
+            console.error("Failed to fetch Bombay Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="gandhinagar-container">
+        <div className="bombay-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Gandhinagar
+                    IIT Bombay
                 </h1>
-                <p>Welcome to IIT Gandhinagar</p>
+                <p>Welcome to IIT Bombay</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -95,12 +101,12 @@ export default function Gandhinagar() {
                 </div>
                 <div className="select-wrapper">
                     <label htmlFor="branch-select"></label>
-                    <select id="branch-select" value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
-                        <option value="">All Branches</option>
-                        {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
-                    </select>
+                        <select id="branch-select" value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
+                            <option value="">All Branches</option>
+                            {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
+                        </select>
                 </div>
-                <button onClick={gandhinagarFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={bombayFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

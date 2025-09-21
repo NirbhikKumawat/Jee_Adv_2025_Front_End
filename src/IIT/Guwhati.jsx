@@ -1,26 +1,19 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Roorkee() {
+export default function Guwahati() {
     const branchList = [
+        "Electronics and Electrical Engineering",
         "Computer Science and Engineering",
         "Chemical Engineering",
-        "Metallurgical and Materials Engineering",
-        "Physics 5602 Physics",
-        "Geological Technology",
         "Mechanical Engineering",
         "Electronics and Communication Engineering",
-        "Mathematics & Computing",
-        "Electrical Engineering",
-        "Architecture 5101 Architecture",
+        "Chemical Science and Technology",
         "Data Science and Artificial Intelligence",
         "Civil Engineering",
-        "Economics 5608 Economics",
-        "Chemical Sciences",
         "Energy Engineering",
         "Engineering Physics",
-        "Production and Industrial Engineering",
-        "Geophysical Technology",
+        "Mathematics and Computing",
         "Biosciences and Bioengineering"
 
     ];
@@ -38,7 +31,7 @@ export default function Roorkee() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Roorkee",
+                "iit": "Guwahati",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -47,15 +40,15 @@ export default function Roorkee() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Roorkee",
+                "iit": "Guwahati",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Roorkee';
+    const API_URL = 'http://localhost:3000/iit/Guwahati';
 
-    const roorkeeFetch = useCallback(async () => {
+    const guwahatiFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -77,19 +70,19 @@ export default function Roorkee() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Roorkee Data")
+            console.error("Failed to fetch Guwahati Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="roorkee-container">
+        <div className="guwahati-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Roorkee
+                    IIT Guwahati
                 </h1>
-                <p>Welcome to IIT Roorkee</p>
+                <p>Welcome to IIT Guwahati</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -111,7 +104,7 @@ export default function Roorkee() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={roorkeeFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={guwahatiFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

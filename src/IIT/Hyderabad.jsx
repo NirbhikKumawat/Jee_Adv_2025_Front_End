@@ -1,41 +1,23 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Patna() {
+export default function Hyderabad() {
     const branchList = [
-        "B. Tech. (CSE) and M.Tech in CSE",
-        "B.Tech (Mathematics and Computing) - MBA in Digital Business Management (IIM Bodh Gaya)",
-    "Computer Science and Engineering",
-    "Chemical Engineering",
-    "Metallurgical and Materials Engineering",
-    "B.Tech (Computer Science and Engineering) - MBA in Digital Business Management (IIM Bodh Gaya)",
-    "B.Tech (Chemical Science and Technology) - MBA in Hospital and Health Care Management (IIM Bodh Gaya)",
-    "BS in Economics with MBA (IIM Bodh Gaya)",
-    "B.Tech (Civil Engineering) - MBA (IIM Bodh Gaya)",
-    "Mechanical Engineering",
-    "Electronics and Communication Engineering",
-    "B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems",
-    "Chemical Science and Technology",
-    "Economics 4202 Economics",
-    "B. Tech. (Mathematics & Computing) M. Tech. in (Mathematics & Computing)",
-    "Electrical and Electronics Engineering",
-    "Artificial Intelligence and Data Science",
-    "B.Tech (Metallurgical and Materials Engineering) - MBA (IIM Bodh Gaya)",
-    "B.Tech (Electronics and Communication Engineering) - MBA in Hospital and Healthcare Management (IIM Bodh Gaya)",
-    "Civil Engineering",
-    "B. Tech. (ECE) -M. Tech. in VLSI",
-    "B. Tech. (EEE)-M. Tech. in (Power &. Control)",
-    "B. Tech in CE. - M. Tech.in Structural Engineering",
-    "B.Tech (Mechanical Engineering) - MBA (IIM Mumbai)",
-    "B.Tech (Electrical and Electronics Engineering) - MBA (IIM Bodh Gaya)",
-    "B. Tech. (ME) - M. Tech. in Mechatronics",
-    "Engineering Physics",
-    "B.Tech (Chemical Engineering) - MBA in Hospital and Health Care Management (IIM Bodh Gaya)",
-    "B. Tech in CE. - M. Tech.in Geotechnical Engineering",
-    "B.Tech (Engineering Physics) - MBA (IIM Bodh Gaya)",
-    "Mathematics and Computing",
-    "B.Tech (Artificial Intelligence and Data Science) - MBA in Digital Business Management (IIM Bodh Gaya)"
-
+        "Electrical Engineering (IC Design and Technology)",
+        "Computer Science and Engineering",
+        "Chemical Engineering",
+        "Engineering Science",
+        "Mechanical Engineering",
+        "Electrical Engineering",
+        "Industrial Chemistry",
+        "Biomedical Engineering",
+        "Artificial Intelligence",
+        "Computational Engineering",
+        "Civil Engineering",
+        "Biotechnology and Bioinformatics",
+        "Materials Science and Metallurgical Engineering",
+        "Engineering Physics",
+        "Mathematics and Computing"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -51,7 +33,7 @@ export default function Patna() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Patna",
+                "iit": "Hyderabad",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -60,15 +42,15 @@ export default function Patna() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Patna",
+                "iit": "Hyderabad",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Patna';
+    const API_URL = 'http://localhost:3000/iit/Hyderabad';
 
-    const patnaFetch = useCallback(async () => {
+    const hyderabadFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -90,19 +72,19 @@ export default function Patna() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Patna Data")
+            console.error("Failed to fetch Hyderabad Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="patna-container">
+        <div className="hyderabad-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Patna
+                    IIT Hyderabad
                 </h1>
-                <p>Welcome to IIT Patna</p>
+                <p>Welcome to IIT Hyderabad</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -124,7 +106,7 @@ export default function Patna() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={patnaFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={hyderabadFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

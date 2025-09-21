@@ -1,20 +1,12 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Guwahati() {
+export default function Goa() {
     const branchList = [
-        "Electronics and Electrical Engineering",
         "Computer Science and Engineering",
-        "Chemical Engineering",
-        "Mechanical Engineering",
-        "Electronics and Communication Engineering",
-        "Chemical Science and Technology",
-        "Data Science and Artificial Intelligence",
-        "Civil Engineering",
-        "Energy Engineering",
-        "Engineering Physics",
+        "Electrical Engineering",
         "Mathematics and Computing",
-        "Biosciences and Bioengineering"
+        "Mechanical Engineering"
 
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
@@ -31,7 +23,7 @@ export default function Guwahati() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Guwahati",
+                "iit": "Goa",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -40,15 +32,15 @@ export default function Guwahati() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Guwahati",
+                "iit": "Goa",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Guwahati';
+    const API_URL = 'http://localhost:3000/iit/Goa';
 
-    const guwahatiFetch = useCallback(async () => {
+    const goaFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -70,19 +62,19 @@ export default function Guwahati() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Guwahati Data")
+            console.error("Failed to fetch Goa Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="guwahati-container">
+        <div className="goa-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Guwahati
+                    IIT Goa
                 </h1>
-                <p>Welcome to IIT Guwahati</p>
+                <p>Welcome to IIT Goa</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -104,7 +96,7 @@ export default function Guwahati() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={guwahatiFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={goaFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

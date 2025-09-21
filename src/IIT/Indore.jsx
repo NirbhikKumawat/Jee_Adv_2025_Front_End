@@ -1,23 +1,17 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Bombay() {
+export default function Indore() {
     const branchList = [
-        "Aerospace Engineering",
-        "Applied Geophysics",
-        "BS in Mathematics",
-        "Chemical Engineering",
-        "Chemistry 4201 Chemistry",
-        "Civil Engineering",
         "Computer Science and Engineering",
-        "Economics 4202 Economics",
-        "Electrical Engineering",
-        "Energy Engineering",
-        "Engineering Physics",
-        "Environmental Science and Engineering",
-        "Industrial Engineering and Operations Research",
+        "Chemical Engineering",
         "Mechanical Engineering",
-        "Metallurgical Engineering and Materials Science"
+        "Metallurgical Engineering and Materials Science",
+        "Electrical Engineering",
+        "Space Science and Engineering",
+        "Civil Engineering",
+        "Engineering Physics",
+        "Mathematics and Computing"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -33,24 +27,24 @@ export default function Bombay() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Bombay",
-                "branch": "BS in Mathematics"
+                "iit": "Indore",
+                "branch": "Electrical Engineering"
             },{
-            "adv_roll_no": 256166748,
+                "adv_roll_no": 256166748,
                 "rank": 404,
                 "ews_rank": null,
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Bombay",
+                "iit": "Indore",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Bombay';
+    const API_URL = 'http://localhost:3000/iit/Indore';
 
-    const bombayFetch = useCallback(async () => {
+    const indoreFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -72,19 +66,19 @@ export default function Bombay() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Bombay Data")
+            console.error("Failed to fetch Indore Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="bombay-container">
+        <div className="indore-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Bombay
+                    IIT Indore
                 </h1>
-                <p>Welcome to IIT Bombay</p>
+                <p>Welcome to IIT Indore</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -101,12 +95,12 @@ export default function Bombay() {
                 </div>
                 <div className="select-wrapper">
                     <label htmlFor="branch-select"></label>
-                        <select id="branch-select" value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
-                            <option value="">All Branches</option>
-                            {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
-                        </select>
+                    <select id="branch-select" value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
+                        <option value="">All Branches</option>
+                        {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
+                    </select>
                 </div>
-                <button onClick={bombayFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={indoreFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

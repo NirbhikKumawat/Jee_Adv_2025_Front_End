@@ -1,14 +1,16 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Tirupati() {
+export default function Gandhinagar() {
     const branchList = [
-        "Chemical Engineering",
-        "Civil Engineering",
         "Computer Science and Engineering",
+        "Chemical Engineering",
+        "Integrated Circuit Design & Technology",
+        "Mechanical Engineering",
         "Electrical Engineering",
-        "Engineering Physics",
-        "Mechanical Engineering"
+        "Artificial Intelligence",
+        "Civil Engineering",
+        "Materials Engineering"
 
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
@@ -25,7 +27,7 @@ export default function Tirupati() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Tirupati",
+                "iit": "Gandhinagar",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -34,15 +36,15 @@ export default function Tirupati() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Tirupati",
+                "iit": "Gandhinagar",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Tirupati';
+    const API_URL = 'http://localhost:3000/iit/Gandhinagar';
 
-    const tirupatiFetch = useCallback(async () => {
+    const gandhinagarFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -64,19 +66,19 @@ export default function Tirupati() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Tirupati Data")
+            console.error("Failed to fetch Gandhinagar Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="tirupati-container">
+        <div className="gandhinagar-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Tirupati
+                    IIT Gandhinagar
                 </h1>
-                <p>Welcome to IIT Tirupati</p>
+                <p>Welcome to IIT Gandhinagar</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -98,7 +100,7 @@ export default function Tirupati() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={tirupatiFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={gandhinagarFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

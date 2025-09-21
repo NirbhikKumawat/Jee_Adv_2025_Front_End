@@ -1,25 +1,15 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Varanasi() {
+export default function Tirupati() {
     const branchList = [
-        "Bioengineering 412N Bioengineering",
-        "Computer Science and Engineering",
         "Chemical Engineering",
-        "Materials Science and Technology",
-        "Mechanical Engineering",
-        "Pharmaceutical Engineering & Technology",
-        "Electrical Engineering",
-        "Industrial Chemistry",
-        "Architecture 5101 Architecture",
         "Civil Engineering",
-        "Biochemical Engineering",
-        "Ceramic Engineering",
+        "Computer Science and Engineering",
+        "Electrical Engineering",
         "Engineering Physics",
-        "Mathematics and Computing",
-        "Electronics Engineering",
-        "Metallurgical Engineering",
-        "Mining Engineering",
+        "Mechanical Engineering"
+
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -35,7 +25,7 @@ export default function Varanasi() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Varanasi",
+                "iit": "Tirupati",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -44,15 +34,15 @@ export default function Varanasi() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Varanasi",
+                "iit": "Tirupati",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Varanasi';
+    const API_URL = 'http://localhost:3000/iit/Tirupati';
 
-    const varanasiFetch = useCallback(async () => {
+    const tirupatiFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -74,19 +64,19 @@ export default function Varanasi() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Varanasi Data")
+            console.error("Failed to fetch Tirupati Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="varanasi-container">
+        <div className="tirupati-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Varanasi
+                    IIT Tirupati
                 </h1>
-                <p>Welcome to IIT Varanasi</p>
+                <p>Welcome to IIT Tirupati</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -108,7 +98,7 @@ export default function Varanasi() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={varanasiFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={tirupatiFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

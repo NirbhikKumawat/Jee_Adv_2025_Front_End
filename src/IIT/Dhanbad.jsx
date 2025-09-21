@@ -1,19 +1,28 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Dharwad() {
+export default function Dhanbad() {
     const branchList = [
         "Computer Science and Engineering",
-        "Interdisciplinary Sciences",
+        "Chemical Engineering",
+        "Environmental Engineering",
         "Mechanical Engineering",
-        "Civil and Infrastructure Engineering",
+        "Applied Geology",
         "Electronics and Communication Engineering",
-        "Electrical and Electronics Engineering",
-        "Chemical and Biochemical Engineering",
-        "Engineering Physics",
-        "Mathematics and Computing"
+        "Mineral and Metallurgical Engineering",
+        "Electrical Engineering",
+        "B.Tech Mining Engineering and MBA in Logistic and Supply Chain Management (IIM Mumbai)",
+    "Mining Machinery Engineering",
+    "Applied Geophysics",
+    "Petroleum Engineering",
+    "Civil Engineering",
+    "ChemicalScience 5H2B ChemicalScience",
+    "Engineering Physics",
+    "Physical Science",
+    "Mathematics and Computing",
+    "Mining Engineering"
 
-    ];
+];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [loading, setLoading] = useState(false);
@@ -28,7 +37,7 @@ export default function Dharwad() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Dharwad",
+                "iit": "Dhanbad",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -37,15 +46,15 @@ export default function Dharwad() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Dharwad",
+                "iit": "Dhanbad",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Dharwad';
+    const API_URL = 'http://localhost:3000/iit/Dhanbad';
 
-    const dharwadFetch = useCallback(async () => {
+    const dhanbadFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -67,19 +76,19 @@ export default function Dharwad() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Dharwad Data")
+            console.error("Failed to fetch Dhanbad Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="dharwad-container">
+        <div className="dhanbad-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Dharwad
+                    IIT Dhanbad
                 </h1>
-                <p>Welcome to IIT Dharwad</p>
+                <p>Welcome to IIT Dhanbad</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -101,7 +110,7 @@ export default function Dharwad() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={dharwadFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={dhanbadFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

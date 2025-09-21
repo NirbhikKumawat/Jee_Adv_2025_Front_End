@@ -1,17 +1,31 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Bhubaneswar() {
+export default function Kharagpur() {
     const branchList = [
         "Computer Science and Engineering",
+        "Chemical Engineering",
         "Metallurgical and Materials Engineering",
+        "Manufacturing Science and Engineering",
+        "Biotechnology and Biochemical Engineering",
         "Mechanical Engineering",
-        "Electronics and Communication Engineering",
+        "Applied Geology",
+        "Economics 4202 Economics",
+        "Electronics and Electrical Communication Engineering",
+        "Instrumentation Engineering",
         "Electrical Engineering",
+        "Artificial Intelligence",
+        "Physics 4204 Physics",
+        "Architecture 5101 Architecture",
         "Civil Engineering",
-        "Engineering Physics",
-        "Mathematics and Computing"
-
+        "Agricultural and Food Engineering",
+        "Exploration Geophysics",
+        "Aerospace Engineering",
+        "Industrial and Systems Engineering",
+        "Chemistry 4201 Chemistry",
+        "Ocean Engineering and Naval Architecture",
+        "Mathematics and Computing",
+        "Mining Engineering"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -27,7 +41,7 @@ export default function Bhubaneswar() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Bhubaneswar",
+                "iit": "Kharagpur",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -36,15 +50,15 @@ export default function Bhubaneswar() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Bhubaneswar",
+                "iit": "Kharagpur",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Bhubaneswar';
+    const API_URL = 'http://localhost:3000/iit/Kharagpur';
 
-    const bhubaneswarFetch = useCallback(async () => {
+    const kharagpurFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -66,19 +80,19 @@ export default function Bhubaneswar() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Bhubaneswar Data")
+            console.error("Failed to fetch Kharagpur Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="bhubaneswar-container">
+        <div className="kharagpur-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Bhubaneswar
+                    IIT Kharagpur
                 </h1>
-                <p>Welcome to IIT Bhubaneswar</p>
+                <p>Welcome to IIT Kharagpur</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -100,7 +114,7 @@ export default function Bhubaneswar() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={bhubaneswarFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={kharagpurFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

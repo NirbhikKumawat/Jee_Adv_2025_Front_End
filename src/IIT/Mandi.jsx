@@ -1,23 +1,20 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Kanpur() {
+export default function Mandi() {
     const branchList = [
+        "Bio Engineering",
         "Computer Science and Engineering",
-        "Chemical Engineering",
+        "B.Tech in Microelectronics & VLSI",
+        "B.Tech in General Engineering",
         "Mechanical Engineering",
-        "Materials Science and Engineering",
-        "Economics 4202 Economics",
+        "B.Tech in Mathematics and Computing",
         "Electrical Engineering",
-        "Physics 4204 Physics",
+        "Data Science and Artificial Intelligence",
         "Civil Engineering",
-        "Biological Sciences and Bioengineering",
-        "Statistics and Data Science",
-        "Mathematics and Scientific Computing",
-        "Aerospace Engineering",
-        "Chemistry 4201 Chemistry",
-        "Earth Sciences"
-
+        "Engineering Physics",
+        "BS in Chemical Sciences",
+        "B.Tech in Materials Science and Engineering"
     ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -33,7 +30,7 @@ export default function Kanpur() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Kanpur",
+                "iit": "Mandi",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -42,15 +39,15 @@ export default function Kanpur() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Kanpur",
+                "iit": "Mandi",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Kanpur';
+    const API_URL = 'http://localhost:3000/iit/Mandi';
 
-    const kanpurFetch = useCallback(async () => {
+    const mandiFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -72,19 +69,19 @@ export default function Kanpur() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Kanpur Data")
+            console.error("Failed to fetch Mandi Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="kanpur-container">
+        <div className="mandi-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Kanpur
+                    IIT Mandi
                 </h1>
-                <p>Welcome to IIT Kanpur</p>
+                <p>Welcome to IIT Mandi</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -106,7 +103,7 @@ export default function Kanpur() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={kanpurFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={mandiFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>

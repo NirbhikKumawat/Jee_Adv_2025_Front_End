@@ -1,28 +1,29 @@
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 import {useCallback, useState} from "react";
-export default function Dhanbad() {
+export default function Roorkee() {
     const branchList = [
         "Computer Science and Engineering",
         "Chemical Engineering",
-        "Environmental Engineering",
+        "Metallurgical and Materials Engineering",
+        "Physics 5602 Physics",
+        "Geological Technology",
         "Mechanical Engineering",
-        "Applied Geology",
         "Electronics and Communication Engineering",
-        "Mineral and Metallurgical Engineering",
+        "Mathematics & Computing",
         "Electrical Engineering",
-        "B.Tech Mining Engineering and MBA in Logistic and Supply Chain Management (IIM Mumbai)",
-    "Mining Machinery Engineering",
-    "Applied Geophysics",
-    "Petroleum Engineering",
-    "Civil Engineering",
-    "ChemicalScience 5H2B ChemicalScience",
-    "Engineering Physics",
-    "Physical Science",
-    "Mathematics and Computing",
-    "Mining Engineering"
+        "Architecture 5101 Architecture",
+        "Data Science and Artificial Intelligence",
+        "Civil Engineering",
+        "Economics 5608 Economics",
+        "Chemical Sciences",
+        "Energy Engineering",
+        "Engineering Physics",
+        "Production and Industrial Engineering",
+        "Geophysical Technology",
+        "Biosciences and Bioengineering"
 
-];
+    ];
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ export default function Dhanbad() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Dhanbad",
+                "iit": "Roorkee",
                 "branch": "Electrical Engineering"
             },{
                 "adv_roll_no": 256166748,
@@ -46,15 +47,15 @@ export default function Dhanbad() {
                 "obc_rank": null,
                 "sc_rank": null,
                 "st_rank": null,
-                "iit": "Dhanbad",
+                "iit": "Roorkee",
                 "branch": "Electrical Engineering"
             }
         ],
         "count": 2
     }]);
-    const API_URL = 'http://localhost:3000/iit/Dhanbad';
+    const API_URL = 'http://localhost:3000/iit/Roorkee';
 
-    const dhanbadFetch = useCallback(async () => {
+    const roorkeeFetch = useCallback(async () => {
         setLoading(true);
         setError('');
         setResults([]);
@@ -76,19 +77,19 @@ export default function Dhanbad() {
             setResults(data.data);
         }catch(error){
             setError(error.message);
-            console.error("Failed to fetch Dhanbad Data")
+            console.error("Failed to fetch Roorkee Data")
         }finally{
             setLoading(false);
         }
     },[selectedCategory,selectedBranch]);
     return(
-        <div className="dhanbad-container">
+        <div className="roorkee-container">
             <Link to="/" className="back-link">Back to Home</Link>
             <header className="iit">
                 <h1>
-                    IIT Dhanbad
+                    IIT Roorkee
                 </h1>
-                <p>Welcome to IIT Dhanbad</p>
+                <p>Welcome to IIT Roorkee</p>
             </header>
             <div className="filter-controls">
                 <div className="select-wrapper">
@@ -110,7 +111,7 @@ export default function Dhanbad() {
                         {branchList.map((branch)=><option key={branch} value={branch}>{branch}</option>)}
                     </select>
                 </div>
-                <button onClick={dhanbadFetch} disabled={loading} className="search-button filter-button">
+                <button onClick={roorkeeFetch} disabled={loading} className="search-button filter-button">
                     {loading?'Searching...':'Search'}
                 </button>
             </div>
