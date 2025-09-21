@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import './App.css';
+import '../App.css';
 export default function Ews() {
     const iitList = [
         "Bombay", "Delhi", "Madras", "Kanpur", "Kharagpur",
@@ -169,9 +169,6 @@ export default function Ews() {
             setLoading(false);
         }
     },[selectedIit, selectedBranch]);
-    useEffect(() => {
-        ewsFetch();
-    },[ewsFetch]);
     return (
         <div className="Ews">
             <Link to="/" className="back-link">Back to Home</Link>

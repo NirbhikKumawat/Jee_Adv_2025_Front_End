@@ -3,7 +3,7 @@ import {Routes,Route} from 'react-router-dom';
 import HomePage from './HomePage';
 import AllotmentChecker from './AllotmentChecker'
 import Category from "./Category.jsx";
-import Ews from "./Ews.jsx";
+import Ews from "./Category/Ews.jsx";
 import Bombay from "./IIT/Bombay.jsx";
 import Delhi from "./IIT/Delhi.jsx";
 import IIT from "./IIT.jsx";
@@ -28,6 +28,9 @@ import Palakkad from "./IIT/Palakkad.jsx";
 import Mandi from "./IIT/Mandi.jsx";
 import Bhubaneshwar from "./IIT/Bhubaneshwar.jsx";
 import Jammu from "./IIT/Jammu.jsx";
+import Obc from "./Category/Obc.jsx";
+import Sc from "./Category/Sc.jsx";
+import St from "./Category/St.jsx";
 
 function App() {
     return (
@@ -36,6 +39,9 @@ function App() {
             <Route path="/checker" element={<AllotmentChecker />} />
             <Route path="/category" element={<Category />} />
             <Route path="/ews" element={<Ews/>}/>
+            <Route path="/obc" element={<Obc />}/>
+            <Route path="/sc" element={<Sc />}/>
+            <Route path="/st" element={<St/>}/>
             <Route path="/iit/bombay" element={<Bombay />} />
             <Route path="/iit/delhi" element={<Delhi />} />
             <Route path="/iit" element={<IIT />} />
