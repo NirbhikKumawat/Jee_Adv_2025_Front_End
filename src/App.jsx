@@ -31,6 +31,7 @@ import Jammu from "./IIT/Jammu.jsx";
 import Obc from "./Category/Obc.jsx";
 import Sc from "./Category/Sc.jsx";
 import St from "./Category/St.jsx";
+import Open from "./Category/Open.jsx";
 
 function App() {
     return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/checker" element={<AllotmentChecker />} />
             <Route path="/category" element={<Category />} />
+            <Route path="/general" element={<Open/>} />
             <Route path="/ews" element={<Ews/>}/>
             <Route path="/obc" element={<Obc />}/>
             <Route path="/sc" element={<Sc />}/>
