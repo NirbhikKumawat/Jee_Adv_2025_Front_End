@@ -26,10 +26,6 @@ function HomePage(){
             });
             createTimeline({
                 defaults:{easing:'easeInOut(3)',duration:600},
-            }).add(words,{
-                translateY:el=>(el.dataset.line%2?'100%':'-100%'),
-                opacity:[0,1],
-                delay:stagger(100),
             }).add(chars,{
                 translateY:el=>(el.dataset.line%2?'100%':'-100%'),
                 opacity:[0,1],
